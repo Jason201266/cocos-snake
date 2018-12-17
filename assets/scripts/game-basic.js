@@ -27,39 +27,49 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        bg1: {
-            default: null,
-            type: cc.Node
-        },
-
-        bg2: {
-            default: null,
-            type: cc.Node
-        },
-
-        speed: 100
+        // rootNode: {
+        //     default: null,
+        //     type: cc.Node
+        // },
+        isGaming: false,
+        isTouchOn: false,
+        initSpeed: 20,
+        accLeft: 200,
+        accRight: 400
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.bgList = [this.bg1, this.bg2];
+        this.snakeSpeed = this.initSpeed;
+        this.rootCanvas = this.node.parent.parent;
+        this.rootCanvas.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.rootCanvas.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);  
     },
 
-    bgMove (dt) {
-        let index = 0;
-        let bgList = this.bgList;
-        let length = bgList.length;
-        let speed = this.speed;
-        for(; index < length; index++){
-            let element = bgList[index];
-            // let bgHeight = element.height;
-            element.y -= speed * dt;
-            if (element.y <= -element.height) {
-                element.y = element.height - speed * dt * 2;
-            }
-        } 
+    onTouchStart () {
+        if (!this.isGaming) this.isGaming = true;
+        this.isTouchOn = true;
+        this.snakeSpeed = -this.initSpeed;
+        console.log(this.accLeft, this.accRight);
     },
+
+    onTouchEnd () {
+        this.isTouchOn = false;
+        this.snakeSpeed = this.initSpeed;
+        console.log(this.accLeft, this.accRight);
+    },
+
+    snakeMove (dt) {
+        let moveArea = this.rootCanvas.width / 2 - this.node.width / 2;
+        this.node.x += this.snakeSpeed * dt;
+        if (this.node.x <= -moveArea) {
+            this.node.x = -moveArea;
+        } else if (this.node.x >= moveArea) {
+            this.node.x = moveArea;
+        }
+    },
+
 
 
     start () {
@@ -67,6 +77,9 @@ cc.Class({
     },
 
     update (dt) {
-        this.bgMove(dt);
+        let accRight = this.isTouchOn ? this.accRight : 0;
+        let accLeft = this.accLeft;
+        this.snakeSpeed += (accLeft - accRight) * dt;
+        this.snakeMove(dt);
     },
 });
