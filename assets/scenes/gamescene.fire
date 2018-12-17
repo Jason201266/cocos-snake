@@ -660,9 +660,6 @@
       "__id__": 13
     },
     "_enabled": true,
-    "parentNode": {
-      "__id__": 12
-    },
     "accLeft": false,
     "accRight": false,
     "snakeSpeed": 100,
