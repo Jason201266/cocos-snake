@@ -27,36 +27,43 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        parentNode: {
-            default: null,
-            type: cc.Node
-        },
+        // rootNode: {
+        //     default: null,
+        //     type: cc.Node
+        // },
         accLeft: false,
-        accRight: false
+        accRight: false,
+        snakeSpeed: 100
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-
-        let parentNode = this.onDestroy.parentNode;
-
-        this.parentNode.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
-        this.parentNode.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);  
-
+        this.parent = this.node.parent;
+        this.parent.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
+        this.parent.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);  
     },
 
     onTouchStart () {
         this.accLeft = false;
         this.accRight = true;
+        console.log(this.accLeft, this.accRight);
     },
 
     onTouchEnd () {
         this.accLeft = true;
         this.accRight = false;
+        console.log(this.accLeft, this.accRight);
     },
 
-    
+    snakeMove () {
+        this.node
+
+
+
+    },
+
+
 
     start () {
 
