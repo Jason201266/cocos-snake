@@ -27,20 +27,32 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+        wallSpeed: 200
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        let manager = cc.director.getCollisionManager();
-        manager.enabled = true;
-        manager.enabledDebugDraw = true;
-        manager.enabledDrawBoundingBox = true;
+        this.rootCanvas = this.node.parent.parent;
+        this.moveDistance = this.rootCanvas.height + this.node.height;
+        this.moveAction = cc.moveTo(this.moveDistance/this.wallSpeed, cc.v2(this.node.x, -this.moveDistance/2));
+        this.moveCallback = cc.callFunc(this.removeWall, this);
+        this.moveSeq = cc.sequence(this.moveAction, this.moveCallback);
+
+        this.node.runAction(this.moveAction);
+
+        cc.director.getCollisionManager().enabled = true;
+
     },
 
-    onCollisionEnter (other, self) {
-        console.dir(other);
-        console.dir(self);
+    removeWall () {
+        this.node && this.node.removeFromParent();
+    },
+
+    onCollisionEnter: function (other, self) {
+        if (other.node.name === 'snake') {
+            console.log('die');
+        }
     },
 
     start () {

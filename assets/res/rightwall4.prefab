@@ -12,12 +12,12 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemy",
+    "_name": "rightwall4",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 1,
+    "_level": 2,
     "_components": [
       {
         "__id__": 2
@@ -42,8 +42,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 76,
-      "height": 88
+      "width": 227,
+      "height": 327
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -52,8 +52,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -41.9,
-      "y": 695.7,
+      "x": -300,
+      "y": 836,
       "z": 0
     },
     "_scale": {
@@ -74,7 +74,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "groupIndex": 2,
+    "groupIndex": 3,
     "_id": ""
   },
   {
@@ -88,7 +88,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "366f14af-6032-43f8-bc1f-c2029257820a"
+      "__uuid__": "17011c2f-08ad-4095-8f26-99b320899cfc"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -106,14 +106,14 @@
     "_id": ""
   },
   {
-    "__type__": "2a948pYNJVEFKOwyB09EUsX",
+    "__type__": "86a1aifddRKj7sXgBr1ojB6",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "enemySpeed": 200,
+    "wallSpeed": 200,
     "_id": ""
   },
   {
@@ -127,39 +127,34 @@
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -54,
+      "y": -3
     },
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -1.7,
-        "y": -17.5
+        "x": -176,
+        "y": -205
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.1,
-        "y": -3.5
+        "x": 35,
+        "y": -82
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.1,
-        "y": 28.9
+        "x": 168,
+        "y": -6
       },
       {
         "__type__": "cc.Vec2",
-        "x": -0.8,
-        "y": 43.3
+        "x": 167,
+        "y": 36
       },
       {
         "__type__": "cc.Vec2",
-        "x": -25.7,
-        "y": 28.4
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -26.3,
-        "y": -1.8
+        "x": -178,
+        "y": 241
       }
     ],
     "_id": ""
@@ -170,9 +165,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "cfbb408a-4fc2-4e70-bc48-2a648d5f9301"
+      "__id__": 0
     },
-    "fileId": "b9LKGSGh1Nb6WOYD7ScF76",
+    "fileId": "ffeaCH9K1AJaZOdd61mQdX",
     "sync": false
   }
 ]

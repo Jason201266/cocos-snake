@@ -12,30 +12,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
-        // rootNode: {
-        //     default: null,
-        //     type: cc.Node
-        // },
-        isGaming: false,
         isTouchOn: false,
-        initSpeed: 20,
-        accLeft: 200,
-        accRight: 400
+        initSpeed: 10,
+        accLeft: 240,
+        accRight: 480
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -48,7 +28,6 @@ cc.Class({
     },
 
     onTouchStart () {
-        if (!this.isGaming) this.isGaming = true;
         this.isTouchOn = true;
         this.snakeSpeed = -this.initSpeed;
         console.log(this.accLeft, this.accRight);
@@ -82,10 +61,6 @@ cc.Class({
         this.snakeMove(dt);
     },
 
-    onCollisionEnter: function (other, self) {
-        console.dir(other);
-        console.dir(self);
-        other.node.removeFromParent();
-    },
+    
     
 });

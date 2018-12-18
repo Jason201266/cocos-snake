@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.41079460269865065,
-      "y": 0.41079460269865065,
+      "x": 0.1,
+      "y": 0.1,
       "z": 1
     },
     "_quat": {
@@ -79,7 +79,7 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 17
+        "__id__": 18
       }
     ],
     "_prefab": null,
@@ -137,7 +137,7 @@
     },
     "_children": [],
     "_active": true,
-    "_level": 1,
+    "_level": 2,
     "_components": [
       {
         "__id__": 4
@@ -187,7 +187,7 @@
     "_skewY": 0,
     "_zIndex": 0,
     "groupIndex": 0,
-    "_id": "66ZkurAZBOh7JcIeO/gXbs"
+    "_id": "479SSWnuhCDKaUGnlCdEiT"
   },
   {
     "__type__": "cc.Camera",
@@ -209,7 +209,7 @@
     "_depth": -1,
     "_zoomRatio": 1,
     "_targetTexture": null,
-    "_id": "01UK0fYlhCz7AqND8au9zJ"
+    "_id": "f6rzmKf9RI36r5WJCF2zvg"
   },
   {
     "__type__": "cc.Node",
@@ -324,7 +324,7 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.2,
+      "x": 1.1,
       "y": 1.1,
       "z": 1
     },
@@ -413,7 +413,7 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.2,
+      "x": 1.1,
       "y": 1.1,
       "z": 1
     },
@@ -496,7 +496,7 @@
     "bg2": {
       "__id__": 8
     },
-    "speed": 100,
+    "speed": 200,
     "_id": "9eIZiKRIFOtLDKNNja4Uc8"
   },
   {
@@ -513,7 +513,11 @@
     ],
     "_active": true,
     "_level": 1,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 17
+      }
+    ],
     "_prefab": null,
     "_opacity": 255,
     "_color": {
@@ -562,7 +566,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "snake1",
+    "_name": "snake",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -624,7 +628,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "groupIndex": 0,
+    "groupIndex": 1,
     "_id": "10xv9WFmdC7bqfssPn8Djo"
   },
   {
@@ -663,15 +667,14 @@
       "__id__": 13
     },
     "_enabled": true,
-    "isGaming": false,
     "isTouchOn": false,
-    "initSpeed": 20,
-    "accLeft": 200,
-    "accRight": 400,
+    "initSpeed": 10,
+    "accLeft": 240,
+    "accRight": 480,
     "_id": "187U2OQENOOZBM55k7b2kp"
   },
   {
-    "__type__": "cc.BoxCollider",
+    "__type__": "cc.PolygonCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -684,12 +687,88 @@
       "x": 0,
       "y": 0
     },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 79,
-      "height": 95
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -0.5,
+        "y": -48.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 37.7,
+        "y": -26
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 38.2,
+        "y": 24.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 47.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -39.1,
+        "y": 25.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -39,
+        "y": -23.7
+      }
+    ],
+    "_id": "c3fWx+FUhPYapN+GhkjD3n"
+  },
+  {
+    "__type__": "139c8bOJ+5GYaY28/PXEv1e",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 12
     },
-    "_id": "d5hsJafthNpLZJZf5la0zc"
+    "_enabled": true,
+    "wallPrefab0": {
+      "__uuid__": "1598d2e4-d6c7-46d5-b66e-3e98b0d5514b"
+    },
+    "wallPrefab1": {
+      "__uuid__": "f6997160-5a4a-474a-ad84-31e43b57a561"
+    },
+    "wallPrefab2": {
+      "__uuid__": "e68b31d8-22f1-4be6-b74b-969a58847a67"
+    },
+    "wallPrefab3": {
+      "__uuid__": "e64beb2d-bf93-4022-9715-01d71e624a7f"
+    },
+    "wallPrefab4": {
+      "__uuid__": "3b941deb-1715-47fa-9260-6d6db8a9e443"
+    },
+    "wallPrefab5": {
+      "__uuid__": "420473ff-e94c-4ac8-9e8b-938683deb28a"
+    },
+    "wallPrefab6": {
+      "__uuid__": "1188c776-62d2-4097-9a26-f8325c712161"
+    },
+    "wallPrefab7": {
+      "__uuid__": "d6895f5a-3f00-41cc-8889-29b917217f3f"
+    },
+    "wallPrefab8": {
+      "__uuid__": "9f862121-7279-4ef0-817d-98490fe09e42"
+    },
+    "wallPrefab9": {
+      "__uuid__": "3807c0f5-70ec-40ee-9ac6-0b97356a7719"
+    },
+    "wallCount": 0,
+    "wallLen": 10,
+    "wallDelayMax": 5,
+    "wallDelayMin": 2.4,
+    "enemyPrefab": {
+      "__uuid__": "cfbb408a-4fc2-4e70-bc48-2a648d5f9301"
+    },
+    "enemyParallel": 1,
+    "enemyDelay": 3,
+    "_id": "5bUueJ48ZCArNXJORV0Cvl"
   },
   {
     "__type__": "cc.Canvas",

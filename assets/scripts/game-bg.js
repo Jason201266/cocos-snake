@@ -43,6 +43,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+        this.rootCanvas = this.node.parent.parent;
         this.bgList = [this.bg1, this.bg2];
     },
 

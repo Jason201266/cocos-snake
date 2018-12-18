@@ -27,7 +27,7 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        enemySpeed: 100
+        enemySpeed: 200
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -37,19 +37,21 @@ cc.Class({
         this.moveDistance = this.rootCanvas.height + this.node.height;
         this.moveAction = cc.moveTo(this.moveDistance/this.enemySpeed, cc.v2(this.node.x, -this.moveDistance/2));
         this.moveCallback = cc.callFunc(this.removeEnemy, this);
-        this.moveSeq = cc.sequence(this.moveAction, this.moveSeq);
+        this.moveSeq = cc.sequence(this.moveAction, this.moveCallback);
 
         this.node.runAction(this.moveAction);
 
         cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
 
     },
 
     removeEnemy () {
-        this.node.removeFromParent();
+        this.node && this.node.removeFromParent();
     },
     
+    onCollisionEnter: function (other, self) {
+        this.removeEnemy();
+    },
     
 
     start () {
