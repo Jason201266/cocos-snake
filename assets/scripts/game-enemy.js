@@ -27,59 +27,34 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        // rootNode: {
-        //     default: null,
-        //     type: cc.Node
-        // },
-        isGaming: false,
-        isTouchOn: false,
-        initSpeed: 20,
-        accLeft: 200,
-        accRight: 400
+        enemySpeed: 100
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.snakeSpeed = this.initSpeed;
         this.rootCanvas = this.node.parent.parent;
-        this.rootCanvas.on(cc.Node.EventType.TOUCH_START, this.onTouchStart, this);
-        this.rootCanvas.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);  
+        this.moveDistance = this.rootCanvas.height + this.node.height;
+        this.moveAction = cc.moveTo(this.moveDistance/this.enemySpeed, cc.v2(this.node.x, -this.moveDistance/2));
+        this.moveCallback = cc.callFunc(this.removeEnemy, this);
+        this.moveSeq = cc.sequence(this.moveAction, this.moveSeq);
+
+        this.node.runAction(this.moveAction);
+
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+
     },
 
-    onTouchStart () {
-        if (!this.isGaming) this.isGaming = true;
-        this.isTouchOn = true;
-        this.snakeSpeed = -this.initSpeed;
-        console.log(this.accLeft, this.accRight);
+    removeEnemy () {
+        this.node.removeFromParent();
     },
-
-    onTouchEnd () {
-        this.isTouchOn = false;
-        this.snakeSpeed = this.initSpeed;
-        console.log(this.accLeft, this.accRight);
-    },
-
-    snakeMove (dt) {
-        let moveArea = this.rootCanvas.width / 2 - this.node.width / 2;
-        this.node.x += this.snakeSpeed * dt;
-        if (this.node.x <= -moveArea) {
-            this.node.x = -moveArea;
-        } else if (this.node.x >= moveArea) {
-            this.node.x = moveArea;
-        }
-    },
-
-
+    
+    
 
     start () {
 
     },
 
-    update (dt) {
-        let accRight = this.isTouchOn ? this.accRight : 0;
-        let accLeft = this.accLeft;
-        this.snakeSpeed += (accLeft - accRight) * dt;
-        this.snakeMove(dt);
-    },
+    // update (dt) {},
 });

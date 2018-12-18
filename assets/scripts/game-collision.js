@@ -27,45 +27,25 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        bg1: {
-            default: null,
-            type: cc.Node
-        },
-
-        bg2: {
-            default: null,
-            type: cc.Node
-        },
-
-        speed: 200
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.bgList = [this.bg1, this.bg2];
+        let manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+        manager.enabledDebugDraw = true;
+        manager.enabledDrawBoundingBox = true;
     },
 
-    bgMove (dt) {
-        let index = 0;
-        let bgList = this.bgList;
-        let length = bgList.length;
-        let speed = this.speed;
-        for(; index < length; index++){
-            let element = bgList[index];
-            element.y -= speed * dt;
-            if (element.y <= -element.height) {
-                element.y = element.height;
-            }
-        } 
+    onCollisionEnter (other, self) {
+        console.dir(other);
+        console.dir(self);
     },
-
 
     start () {
 
     },
 
-    update (dt) {
-        this.bgMove(dt);
-    },
+    // update (dt) {},
 });
